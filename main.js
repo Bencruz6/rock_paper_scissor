@@ -5,6 +5,6 @@ function getComputerChoice() {
     else return "scissors";
 }
 
-
+console.log(getComputerChoice());
 
 // console.log(Math.random()*3);
