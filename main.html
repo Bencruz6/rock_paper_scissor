@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ComputerGuess() {
+            let x = Math.floor(Math.random() * 3)
+            if (x == 0) return "Rock";
+            else if (x == 1) return "Paper";
+            else if (x == 2) return "Scissors";
+        }
+
+        function HumanGuess() {
+             
+            let answer = prompt("Enter your age");
+            answer=answer.toUpperCase();
+            while(answer!='ROCK'|| answer!='PAPER' || answer!='SCISSORS'){
+                answer=prompt("Please choose the correct option");
+            }
+            return answer;
+
+        }
+
+        document.writeln(ComputerGuess() + " " + HumanGuess())
+
+        //this is for debugging purpose
+        // console.log(ComputerGuess(), HumanGuess());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
