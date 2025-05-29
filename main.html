@@ -6,25 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        let HumanScore = 0;
+        let ComputerScore = 0;
+
         function ComputerGuess() {
             let x = Math.floor(Math.random() * 3)
-            if (x == 0) return "Rock";
-            else if (x == 1) return "Paper";
-            else if (x == 2) return "Scissors";
+            if (x == 0) return "ROCK";
+            else if (x == 1) return "PAPER";
+            else return "SCISSORS";
         }
 
         function HumanGuess() {
-             
-            let answer = prompt("Enter your age");
-            answer=answer.toUpperCase();
-            while(answer!='ROCK'|| answer!='PAPER' || answer!='SCISSORS'){
-                answer=prompt("Please choose the correct option");
+
+            let answer = prompt("Please Enter your Guess out of 'ROCK' 'PAPER' AND 'SCISSORS'");
+            answer = answer.toUpperCase();
+            while (answer != 'ROCK' && answer != 'PAPER' && answer != 'SCISSORS') {
+                answer = prompt("Please choose the correct option not " + `${answer}`);
+                answer = answer.toUpperCase();
             }
             return answer;
 
         }
 
-        document.writeln(ComputerGuess() + " " + HumanGuess())
+        function Playround() {
+            let x = ComputerGuess();
+            let y = HumanGuess();
+
+            const wins = { ROCK: 'SCISSORS', PAPER: 'ROCK', SCISSORS: 'PAPER' };
+
+            if (wins[x] === y) {
+                ComputerScore++;
+                console.log(`Computer Won!  Computer Guess: ${x} and Your Guess was: ${y}`);
+
+            }
+
+            else if (x === y) return "OOPS draw";
+            else {
+                HumanScore++;
+                console.log("You Won!  Computer Guess:   " + x + "  and Your Guess was:  " + y);
+            }
+
+
+        }
+
+
+        function Game() {
+            number = 5;
+            while (number != 0) {
+
+               Playround();
+                number--;
+
+            }
+        }
+
+        Game();
+
+        // document.writeln(Playround());
+        // document.writeln("________COMPUTER SCORE :"+ComputerScore);
+        // document.writeln("________HUMAN SCORE :"+HumanScore);
 
         //this is for debugging purpose
         // console.log(ComputerGuess(), HumanGuess());
